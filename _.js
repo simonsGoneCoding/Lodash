@@ -35,6 +35,26 @@ const _ = {
       " ".repeat(startPaddingLength) + string + " ".repeat(endPaddingLength);
 
     return paddedString;
+  },
+
+  has(object, key) {
+    const hasValue = object[key];
+    if (typeof hasValue === "undefined") {
+      return false;
+    } else {
+      return true;
+    }
+  },
+
+  invert(object) {
+    let invertedObject = {};
+
+    for (let key in object) {
+      const originalValue = object[key];
+      invertedObject = { originalValue: key };
+    }
+
+    return invertedObject;
   }
 };
 
