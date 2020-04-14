@@ -55,7 +55,26 @@ const _ = {
     }
 
     return invertedObject;
-  }
+  },
+
+  findKey(object, predicate) {
+    for (key in object) {
+      const value = object[key];
+      const predicateReturnedValue = predicate(value);
+      if (predicateReturnedValue) {
+        return key;
+      }
+      return undefined;
+    }
+  },
+
+  drop(array, n) {
+    if (n === undefined) {
+      n = 1;
+    }
+    const droppedArray = array.slice(n, array.length);
+    return droppedArray;
+  },
 };
 
 // Do not write or modify code below this line.
